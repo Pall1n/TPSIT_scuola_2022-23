@@ -24,7 +24,6 @@ class Program {
 
         int somma = 0;
         for (int i = 0; i < 100; i++) {
-            Console.WriteLine(vettore[i]);
             somma += vettore[i];
         }
 
@@ -43,3 +42,14 @@ class Program {
         }
     }
 }
+
+/*
+    Creo un vettore di 100 elementi interi e 2 thread; il 
+    primo thread riempie la prima metà del vettore con numeri 
+    casuali compresi tra 0 e 100, il secondo thread fa la 
+    stessa cosa con la seconda metà del vettore, parallelamente. 
+    Alla fine, dopo essermi assicurato che entrambi i thread 
+    abbiano concluso la loro esecuzione con il metodo Join(), 
+    eseguo la somma di tutti gli elementi del vettore e la 
+    stampo su console
+*/
