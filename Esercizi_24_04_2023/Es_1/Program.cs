@@ -39,7 +39,7 @@ class Program {
         Thread[] threads = new Thread[args.Length-1];
 
         for(int i = 0; i < threads.Length; i++) {
-            threads[i] = new Thread(SearchWord);
+            threads[i] = new Thread(new ParameterizedThreadStart(SearchWord));
             threads[i].Start(words[i]);
         }
 
@@ -53,7 +53,7 @@ class Program {
     static void SearchWord(Object word) {
         int count = 0;
         using(StreamReader sr = new StreamReader(filename)) {
-            String line;
+            String? line;
             while((line = sr.ReadLine()) != null) {
                 line = line.ToLower();
                 if(line.Contains((String) word)) {
